@@ -1,0 +1,191 @@
+    
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&display=swap');
+        
+        :root {
+            --soft-yellow: #FFF4D4;
+            --light-yellow: #FFE5B4;
+            --accent-yellow: #FFD56F;
+            --soft-pink: #FFE2E2;
+            --text-color: #6B4F4F;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Neue', cursive;
+            overflow: hidden;
+            background: var(--soft-yellow);
+        }
+        
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute;
+            transition: all 0.8s ease;
+            background: var(--soft-yellow);
+            color: var(--text-color);
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        .content-wrapper {
+            max-width: 1000px;
+            width: 90%;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(107, 79, 79, 0.1);
+        }
+
+        .photo-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(107, 79, 79, 0.15);
+            border: 8px solid white;
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .father-daughter-animation {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            position: relative;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .decorative-clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .cloud {
+            position: absolute;
+            animation: floatCloud 20s infinite linear;
+        }
+
+        .cloud:nth-child(1) { top: 20%; left: -100px; animation-delay: 0s; }
+        .cloud:nth-child(2) { top: 40%; left: -150px; animation-delay: -5s; }
+        .cloud:nth-child(3) { top: 60%; left: -80px; animation-delay: -10s; }
+
+        @keyframes floatCloud {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        p {
+            font-size: 1.5em;
+            margin: 15px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            position: absolute;
+            animation: floatHeart 4s infinite ease-in-out;
+            color: #FF9999;
+            font-size: 20px;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { transform: translateY(-50px) scale(1.2); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            background: var(--light-yellow);
+            border: none;
+            border-radius: 25px;
+            color: var(--text-color);
+            padding: 12px 25px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(107, 79, 79, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background: var(--accent-yellow);
+            transform: translateY(-2px);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 10px;
+            background: var(--light-yellow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--accent-yellow);
+            width: 20%;
+            transition: width 0.3s ease;
+        }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Terima Kasih untuk Abi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+
+    <div class="decorative-clouds">
+        <svg class="cloud" width="100" height="40" viewBox="0 0 100 40">
+            <path d="M10 30 Q25 10 40 30 Q55 10 70 30 Q85 10 90 30" fill="none" stroke="#FFE5B4" stroke-width="8"/>
+        </svg>
+        <svg class="cloud" width="80" height="30" viewBox="0 0 80 30">
+            <path d="M10 20 Q20 5 30 20 Q40 5 50 20 Q60 5 70 20" fill="none" stroke="#FFE5B4" stroke-width="6"/>
+        </svg>
+        <svg class="cloud" width="120" height="50" viewBox="0 0 120 50">
+            <path d="M10 40 Q35 15 60 40 Q85 15 110 40" fill="none" stroke="#FFE5B4" stroke-width="10"/>
+        </svg>
+    </div>
+
+    <div class="slide active">
+        <div class="content-wrapper">
+            <h1>✨ Selamat Tahun Baru 2025 ✨</h1>
+            <div class="photo-container">
+                <img src="4.jpg" alt="Abi">
+            </div>
+            <div class="father-daughter-animation">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="#FFD56F"/>
+                    <circle cx="40" cy="45" r="5" fill="#6B4F4F"/>
+                    <circle cx="60" cy="45" r="5" fill="#6B4F4F"/>
+                    <path d="M40 60 Q50 70 60 60" fill="none" stroke="#6B4F4F" stroke-width="3"/>
+                </svg>
+            </div>
+            <p>Untuk Abi-Cu! 🐣</p>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="content-wrapper">
+            <h1>Terima Kasih Abi! 💝</h1>
+            <div class="photo-container">
+                <img src="1.jpeg" alt="Moment with Abi">
+            </div>
+            <div class="father-daughter-animation">
+                <svg viewBox="0 0 100 100">
+                    <rect x="30" y="20" width="40" height="60" rx="20" fill="#FFD56F"/>
+                    <circle cx="50" cy="30" r="15" fill="#FFD56F"/>
+                </svg>
+            </div>
+            <p>Untuk selalu searah dalam keanehan kita,wkwk terutama untuk tetap bertahan meskipun udah babak belur!</p>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="content-wrapper">
+            <h1>Abi Terbaik! 🌈</h1>
+            <div class="photo-container">
+                <img src="1.jpeg" alt="Happy moments">
+            </div>
+            <div class="father-daughter-animation">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="30" cy="50" r="20" fill="#FFD56F"/>
+                    <circle cx="70" cy="50" r="15" fill="#FFD56F"/>
+                    <path d="M30 50 L70 50" stroke="#6B4F4F" stroke-width="3"/>
+                </svg>
+            </div>
+            <p>Terima kasih untuk selalu dengerin setiap cerita randome, absurd, aneh,mellow, lawak dan sebagainya</p>
+            <p>Untuk setiap candaan dan nasihat</p>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="content-wrapper">
+            <h1>Doa untuk Abi nih yaaa</h1>
+            <div class="photo-container">
+                <img src="3.jpg" alt="Special moment">
+            </div>
+            <div class="father-daughter-animation">
+                <svg viewBox="0 0 100 100">
+                    <path d="M20 80 Q50 20 80 80" fill="none" stroke="#FFD56F" stroke-width="8"/>
+                    <circle cx="50" cy="40" r="15" fill="#FFD56F"/>
+                </svg>
+            </div>
+            <p>Semoga Abi selalu sehat</p>
+            <p>Dan bahagia selalu</p>
+            <p>Sama ga usah angkut anak lainnya, karena aku tau aku aja udah cukup buat Abi posenggggg, yaw!</p>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="content-wrapper">
+            <h1>Love You, Abi! ❤️</h1>
+            <div class="photo-container">
+                <img src="4.jpg" alt="Family photo">
+            </div>
+            <div class="father-daughter-animation">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 20 Q20 20 20 50 Q20 80 50 80 Q80 80 80 50 Q80 20 50 20" fill="#FF9999"/>
+                </svg>
+            </div>
+            <p>Dari anak kesayangan abi</p>
+            <p>Yang selalu Keren</p>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button class="nav-btn" onclick="prevSlide()">
+            <i class="fas fa-chevron-left"></i> Sebelumnya
+        </button>
+        <button class="nav-btn" onclick="nextSlide()">
+            Selanjutnya <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.querySelector('.progress');
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            updateProgress();
+            createHearts();
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / slides.length) * 100;
+            progress.style.width = percentage + '%';
+        }
+        
+        function createHearts() {
+            const animation = document.querySelector('.father-daughter-animation');
+            for (let i = 0; i < 3; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 260 + 20 + 'px';
+                heart.style.animationDelay = i * 0.5 + 's';
+                animation.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        createHearts();
+        setInterval(createHearts, 4000);
+    </script>
+</body>
+</html>
